@@ -1,9 +1,9 @@
 import React from 'react';
 
 const projects = [
-  { title: "Portfolio Website", description: "My personal portfolio built with React.", link: "#" },
-  { title: "Blog App", description: "A full-stack blog application using FastAPI and React.", link: "#" },
-  { title: "JMeter API Testing", description: "Performance testing using JMeter on Simple Books API.", link: "#" },
+  { title: "Data Sense", description: "Data Sense is a natural language to SQL system with a modern web interface for the Savoy Ice Cream distribution database.", link: "https://github.com/MI-Mahin/DataSense.git" },
+  { title: "Police Positive", description: "Police Positive enhances responsiveness, transparency, and public trust by streamlining communication between civilians, on-duty police operators, and supervisors through innovative technology solutions.", link: "https://github.com/MI-Mahin/Police-Positive.git" },
+  { title: "Sign All", description: "Sign All is designed to enhance communication for individuals with hearing disabilities by translating American Sign Language (ASL) gestures into English text and speech.", link: "https://github.com/MI-Mahin/sign-all_DP1.git" },
 ];
 
 const Projects = () => {
