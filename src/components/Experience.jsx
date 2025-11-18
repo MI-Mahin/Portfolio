@@ -5,7 +5,7 @@ const experience = [
     location: "Gulshan, Dhaka, Bangladesh",
     duration: "October 2025 - February 2026",
     //description: "Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-    technologies: ["Next.js", "MySQL", "Flask", "Django"],
+    technologies: ["Next.js", "MySQL", "Flask"],
     logo: "/company-logo.png"
   }
 ];
