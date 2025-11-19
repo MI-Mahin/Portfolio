@@ -446,6 +446,10 @@ nav.navbar a.active::after {
 .project-card {
   overflow: hidden;
   position: relative;
+  border: 2px solid transparent; /* hidden by default, shows on hover */
+  border-radius: 12px;
+  transition: border-color 0.18s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.25rem; /* keep content away from border */
 }
 
 .project-card::before {
@@ -468,7 +472,7 @@ nav.navbar a.active::after {
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-  border-color: #475569;
+  border-color: #3b82f6; /* blue accent on hover */
 }
 
 .project-card h3 {
@@ -960,9 +964,12 @@ nav.navbar a.active::after {
   flex-wrap: wrap;
   gap: 1rem;
 }
-.experience-header > div {
-  flex: 1 1 auto; /* allow the title block to take available space */
-  min-width: 0; /* prevent overflow so the duration can sit on the right */
+.experience-header > div:first-child {
+  flex: 1 1 auto; /* left block (title/company) takes available space */
+  min-width: 0;
+}
+.experience-header > div:last-child {
+  flex: 0 0 auto; /* right block (duration) sized to content */
 }
 
 .experience-header h3 {
@@ -972,10 +979,18 @@ nav.navbar a.active::after {
   font-weight: 600;
 }
 
+/* Slightly reduce the font-size of parenthetical part of position by 1pt (~0.083333rem) */
+.experience-position-rest {
+  font-size: calc(1.5rem - 0.083333rem);
+  line-height: 1.1;
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
 .experience-company {
   font-size: 1.1rem;
   color: #3b82f6;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem; /* tightened further per request */
   font-weight: 500;
 }
 
@@ -1217,9 +1232,11 @@ nav.navbar a.active::after {
   color: #f1f5f9;
   font-size: 1.5rem;
   font-weight: 600;
-  margin: 0;
+  margin-bottom: 0.5rem; /* smaller gap to location */
   flex: 1;
 }
+
+/* (removed inline company-duration rules; duration uses .experience-duration styling) */
 
 .education-year {
   color: #3b82f6;

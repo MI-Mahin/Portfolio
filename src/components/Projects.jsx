@@ -20,6 +20,12 @@ const projects = [
     link: "https://github.com/MI-Mahin/sign-all_DP1.git",
     image: "/projects/sign-all.svg",
   },
+  {
+    title: "OTA Simulator",
+    description: "OTA simulator is an interactive visual lab for comparing OTA update algorithms and concurrency problem's solution. Under development.",
+    link: "https://github.com/MI-Mahin/OTA-SimLab.git",
+    image: "/projects/ota-sim.svg",
+  },
 ];
 
 const Projects = () => {

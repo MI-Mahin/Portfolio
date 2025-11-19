@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# Portfolio — MI‑Mahin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains a responsive personal portfolio built with React and Vite. The site is designed for clarity, accessibility, and straightforward maintenance.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application is a single-page portfolio comprising the following sections: Hero, Projects, Experience, Education, Skills, and Contact. Components live under `src/components/` and layout/styling is managed in `src/index.css`.
 
-## React Compiler
+## Requirements
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js (v16 or later) and npm
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Install dependencies:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```powershell
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Start the development server with hot reload:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```powershell
+npm run dev
 ```
+
+Build production assets:
+
+```powershell
+npm run build
+```
+
+Preview the production build locally:
+
+```powershell
+npm run preview
+```
+
+## Project layout
+
+- `index.html` — application root
+- `src/main.*` — application bootstrap
+- `src/App.*` — top-level layout and routes
+- `src/components/` — UI components (e.g., `Projects.jsx`, `Experience.jsx`, `Education.jsx`, `Navbar.jsx`, `Hero.jsx`)
+- `src/index.css` — global stylesheet
+- `public/projects/` — project thumbnails and static assets
+
+## Images and SVGs
+
+- Reference static images and SVGs from `public/` using absolute paths, for example:
+
+```jsx
+<img src="/projects/police-positive.svg" alt="Police Positive screenshot" />
+```
+
+- Recommended SVG editing workflow:
+  1. Create a local backup before editing: `copy file.svg file.svg.orig`.
+ 2. Edit only the non-essential mockup layers (for example, a white rounded-rect used as a mockup frame).
+ 3. Test changes with `npm run dev` and review the Projects page.
+ 4. If the edit causes an issue, restore from the `.orig.svg` backup.
+
+## Styling notes
+
+- Global styles are in `src/index.css`. Prefer small, targeted edits to avoid wide regressions.
+- Project thumbnails are displayed inside `.project-media`. Use `object-fit: contain` to show the entire artwork, or `object-fit: cover` to enforce a uniform cropped appearance.
+- Experience and Education cards follow a left-logo/right-content pattern; logo styling is defined by `.experience-logo` and `.education-logo`.
+
+## Accessibility
+
+- Provide meaningful `alt` text for images.
+- Maintain accessible controls (`aria-controls`, `aria-expanded`) for interactive items such as expandable descriptions.
+
+## Deployment
+
+After building (`npm run build`) the `dist/` directory contains the static site to deploy to any static host (Vercel, Netlify, GitHub Pages, etc.).
+
+Example: GitHub Pages (optional):
+
+```powershell
+npm install --save-dev gh-pages
+# Add to package.json scripts: "predeploy": "npm run build", "deploy": "gh-pages -d dist"
+npm run deploy
+```
+
+## Maintenance and contribution guidelines
+
+- Keep commits small and descriptive. If editing images or SVGs, include a note and keep a `.orig.svg` backup.
+- Test layout and visual changes at several viewport widths.
+
+If you would like, I can add a README screenshot, deploy scripts for a specific host, or a `CONTRIBUTING.md` describing commit conventions.
+
+---
+
+Owner: MI‑Mahin
+
+License: This repository is provided as a personal project template. Add a license file if you intend to publish or redistribute publicly.

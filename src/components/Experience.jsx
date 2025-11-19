@@ -1,6 +1,6 @@
 const experience = [
   {
-    position: "Software Engineer Intern (Research & Development)",
+    position: "Software Engineering Intern (Research & Development)",
     company: "Savoy Ice Cream Factory Ltd.",
     location: "Gulshan, Dhaka, Bangladesh",
     duration: "October 2025 - February 2026",
@@ -15,25 +15,33 @@ const Experience = () => {
     <section id="experience" className="experience">
       <h2>Experience</h2>
       <div className="experience-list">
-        {experience.map((exp, index) => (
-          <div key={index} className="experience-card">
-            <div className="experience-logo">
-              <img src={exp.logo} alt={`${exp.company} logo`} />
-            </div>
-            <div className="experience-content">
-              <div className="experience-header">
-                <div>
-                  <h3>{exp.position}</h3>
-                  <h4 className="experience-company">{exp.company}</h4>
-                </div>
-                <span className="experience-duration">{exp.duration}</span>
+        {experience.map((exp, index) => {
+          const [title, rest] = exp.position.split(' (');
+          return (
+            <div key={index} className="experience-card">
+              <div className="experience-logo">
+                <img src={exp.logo} alt={`${exp.company} logo`} />
               </div>
-              <p className="experience-location">{exp.location}</p>
-              <p className="experience-description">{exp.description}</p>
-              {/* technologies removed from Experience cards per request */}
+              <div className="experience-content">
+                <div className="experience-header">
+                  <div>
+                    <h3>
+                      {title}
+                      {rest ? (<><br /><span className="experience-position-rest">({rest}</span></>) : null}
+                    </h3>
+                    <h4 className="experience-company">{exp.company}</h4>
+                  </div>
+                  <div>
+                    <span className="experience-duration">{exp.duration}</span>
+                  </div>
+                </div>
+                <p className="experience-location">{exp.location}</p>
+                <p className="experience-description">{exp.description}</p>
+                {/* technologies removed from Experience cards per request */}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
