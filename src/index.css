@@ -444,13 +444,8 @@ nav.navbar a.active::after {
 }
 
 .project-card {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 12px;
-  padding: 2rem;
-  transition: all 0.3s ease;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
 .project-card::before {
@@ -503,13 +498,16 @@ nav.navbar a.active::after {
   margin-bottom: 1rem;
   background: #0f172a;
   border: 1px solid #273142;
+  height: auto; /* allow height to follow the image so the full photo is visible */
 }
 
 .project-media img {
   width: 100%;
-  height: 160px;
-  object-fit: cover;
+  height: auto; /* preserve image aspect ratio and show full photo */
+  object-fit: contain; /* show whole image without cropping */
   display: block;
+  background: transparent;
+  border-radius: 10px 10px 0 0; /* match container corners */
 }
 
 .project-content {
@@ -519,7 +517,7 @@ nav.navbar a.active::after {
 
 .media-placeholder {
   width: 100%;
-  height: 160px;
+  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -907,12 +905,13 @@ nav.navbar a.active::after {
 }
 
 .experience-card {
-  background: #1e293b;
+  background: #0f172a;
   border-radius: 12px;
   padding: 2rem;
   display: flex;
   gap: 2rem;
   border: 2px solid #334155;
+  border-left: 4px solid #3b82f6; /* match Education card accent */
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
@@ -927,18 +926,21 @@ nav.navbar a.active::after {
   flex-shrink: 0;
   width: 80px;
   height: 80px;
-  background: #0f172a;
-  border-radius: 10px;
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   border: 2px solid #334155;
+  transition: all 0.3s ease;
   overflow: hidden;
 }
 
 .experience-logo img {
-  max-width: 70%;
-  max-height: 70%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -946,13 +948,21 @@ nav.navbar a.active::after {
   flex: 1;
 }
 
+.experience-content {
+  min-width: 0; /* allow flex child to shrink and prevent overflow */
+}
+
 .experience-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.5rem;
+  align-items: flex-start; /* match Education header alignment */
+  margin-bottom: 0.8rem;
   flex-wrap: wrap;
   gap: 1rem;
+}
+.experience-header > div {
+  flex: 1 1 auto; /* allow the title block to take available space */
+  min-width: 0; /* prevent overflow so the duration can sit on the right */
 }
 
 .experience-header h3 {
@@ -970,12 +980,12 @@ nav.navbar a.active::after {
 }
 
 .experience-duration {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
   padding: 0.4rem 1rem;
   border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
   white-space: nowrap;
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
@@ -984,6 +994,13 @@ nav.navbar a.active::after {
   color: #94a3b8;
   font-size: 0.95rem;
   margin-bottom: 1rem;
+}
+
+.experience-location::before {
+  content: '📍';
+  font-size: 0.95rem;
+  margin-right: 0.45rem;
+  display: inline-block;
 }
 
 .experience-description {
@@ -1319,6 +1336,16 @@ nav.navbar a.active::after {
   }
 
   .education-logo {
+    margin-bottom: 1rem;
+  }
+
+  .experience-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .experience-logo {
     margin-bottom: 1rem;
   }
 }

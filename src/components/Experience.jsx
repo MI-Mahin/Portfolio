@@ -30,11 +30,7 @@ const Experience = () => {
               </div>
               <p className="experience-location">{exp.location}</p>
               <p className="experience-description">{exp.description}</p>
-              <div className="experience-technologies">
-                {exp.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-tag">{tech}</span>
-                ))}
-              </div>
+              {/* technologies removed from Experience cards per request */}
             </div>
           </div>
         ))}
