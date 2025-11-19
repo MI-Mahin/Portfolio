@@ -48,7 +48,6 @@ const Hero = () => {
             {text}<span className="typing-cursor">|</span>
           </p>
           <div className="hero-cta">
-            <a href="#projects" className="btn-primary">View Projects</a>
             <a href="/resume.pdf" download="Mahmudul_Islam_Mahin_Resume.pdf" className="btn-secondary">Download Resume</a>
           </div>
           <div className="social-links">
