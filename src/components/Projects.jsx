@@ -26,6 +26,12 @@ const projects = [
     link: "https://github.com/MI-Mahin/OTA-SimLab.git",
     image: "/projects/ota-sim.svg",
   },
+    {
+    title: "Portfolio",
+    description: "Portfolio is an responsive portfolio website made for personal use, built with React and Vite.",
+    link: "https://github.com/MI-Mahin/Portfolio.git",
+    image: "/projects/portfolio.svg",
+  },
 ];
 
 const Projects = () => {
