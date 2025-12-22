@@ -174,22 +174,6 @@ nav.navbar a.active::after {
   justify-content: center;
 }
 
-.profile-photo::before {
-  content: '';
-  position: absolute;
-  width: 58%;
-  height: 58%;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 28px solid #ff6b6b;
-  background: transparent;
-  z-index: -1;
-  box-shadow: 0 0 80px rgba(255, 107, 107, 0.6),
-              inset 0 0 60px rgba(255, 107, 107, 0.3);
-}
-
 .photo-placeholder {
   width: 90%;
   height: 90%;
