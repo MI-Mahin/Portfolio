@@ -38,6 +38,18 @@ const projects = [
     link: "https://github.com/MI-Mahin/GoTravel.git",
     image: "/projects/go-travel.svg",
   },
+  {
+    title: "Monetra",
+    description: "Monetra is a personal finance companion to track the history of your earnings, savings, spendings etc.",
+    link: "https://github.com/MI-Mahin/Monetra.git",
+    image: "/projects/monetra.svg",
+  },
+  {
+    title: "Bidzr",
+    description: "Bidzr is an auction management system which connects bidders and sellers with talents in a seamless online experience.",
+    link: "https://github.com/MI-Mahin/Bidzr.git",
+    image: "/projects/bidzr.svg",
+  },
 ];
 
 const Projects = () => {
