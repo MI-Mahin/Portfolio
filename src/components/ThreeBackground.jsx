@@ -66,7 +66,7 @@ export default function ThreeBackground() {
     <div className="three-background">
       <Canvas
         camera={{ position: [0, 0, 25], fov: 60 }}
-        style={{ position: 'fixed', top: 0, left: 0, zIndex: -1 }}
+        style={{ position: 'fixed', inset: 0, width: '100%', height: '100%', zIndex: -1, pointerEvents: 'none' }}
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />

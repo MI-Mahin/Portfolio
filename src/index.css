@@ -389,7 +389,7 @@ nav.navbar a.active::after {
 
 /* About Section */
 .about {
-  background: #1e293b;
+  background: transparent;
   padding: 5rem 5%;
   transition: background-color 0.3s ease;
 }
@@ -411,7 +411,7 @@ nav.navbar a.active::after {
 
 /* Projects Section */
 .projects {
-  background: #0f172a;
+  background: transparent;
   padding: 5rem 5%;
   transition: background-color 0.3s ease;
 }
@@ -601,7 +601,7 @@ nav.navbar a.active::after {
 
 /* Skills Section */
 .skills {
-  background: #1e293b;
+  background: transparent;
   padding: 5rem 5%;
   transition: background-color 0.3s ease;
 }
@@ -876,7 +876,7 @@ nav.navbar a.active::after {
 
 /* Experience Section */
 .experience {
-  background: #0f172a;
+  background: transparent;
   padding: 5rem 5%;
   transition: background-color 0.3s ease;
 }
@@ -1065,7 +1065,7 @@ nav.navbar a.active::after {
 
 /* Contact Section */
 .contact {
-  background: #0f172a;
+  background: transparent;
   padding: 5rem 5%;
   transition: background-color 0.3s ease;
 }
@@ -1142,7 +1142,7 @@ nav.navbar a.active::after {
 
 /* Education Section */
 .education {
-  background: #1e293b;
+  background: transparent;
   padding: 5rem 5%;
   transition: background-color 0.3s ease;
 }
