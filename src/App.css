@@ -157,15 +157,15 @@
 /* Skills 3D Section */
 .skills-3d {
   min-height: 100vh;
-  padding: 100px 5%;
+  padding: 60px 5%;
   position: relative;
   z-index: 10;
 }
 
 .skills-3d h2 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
   color: #ffffff;
 }
 
@@ -196,15 +196,15 @@
 /* Projects 3D Section */
 .projects-3d {
   min-height: 100vh;
-  padding: 100px 5%;
+  padding: 60px 5%;
   position: relative;
   z-index: 10;
 }
 
 .projects-3d h2 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
   color: #ffffff;
 }
 

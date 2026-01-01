@@ -390,7 +390,7 @@ nav.navbar a.active::after {
 /* About Section */
 .about {
   background: transparent;
-  padding: 5rem 5%;
+  padding: 3rem 5%;
   transition: background-color 0.3s ease;
 }
 
@@ -412,13 +412,13 @@ nav.navbar a.active::after {
 /* Projects Section */
 .projects {
   background: transparent;
-  padding: 5rem 5%;
+  padding: 3rem 5%;
   transition: background-color 0.3s ease;
 }
 
 .projects h2 {
   font-size: 2.8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   color: #f1f5f9;
   font-weight: 700;
@@ -602,13 +602,13 @@ nav.navbar a.active::after {
 /* Skills Section */
 .skills {
   background: transparent;
-  padding: 5rem 5%;
+  padding: 3rem 5%;
   transition: background-color 0.3s ease;
 }
 
 .skills h2 {
   font-size: 2.8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   color: #f1f5f9;
   font-weight: 700;
@@ -877,13 +877,13 @@ nav.navbar a.active::after {
 /* Experience Section */
 .experience {
   background: transparent;
-  padding: 5rem 5%;
+  padding: 3rem 5%;
   transition: background-color 0.3s ease;
 }
 
 .experience h2 {
   font-size: 2.8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   color: #f1f5f9;
   font-weight: 700;
@@ -1066,13 +1066,13 @@ nav.navbar a.active::after {
 /* Contact Section */
 .contact {
   background: transparent;
-  padding: 5rem 5%;
+  padding: 3rem 5%;
   transition: background-color 0.3s ease;
 }
 
 .contact h2 {
   font-size: 2.8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   color: #f1f5f9;
   font-weight: 700;
@@ -1143,13 +1143,13 @@ nav.navbar a.active::after {
 /* Education Section */
 .education {
   background: transparent;
-  padding: 5rem 5%;
+  padding: 3rem 5%;
   transition: background-color 0.3s ease;
 }
 
 .education h2 {
   font-size: 2.8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   text-align: center;
   color: #f1f5f9;
   font-weight: 700;
