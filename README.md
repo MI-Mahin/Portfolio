@@ -12,6 +12,26 @@ The application is a single-page portfolio comprising the following sections: He
 
 ## Development
 
+### Contact form setup (no backend)
+
+This portfolio uses Formspree for contact form delivery.
+
+1. Create a form at Formspree and copy your endpoint URL (for example, `https://formspree.io/f/abcde123`).
+2. Copy `.env.example` to `.env`.
+3. Set your endpoint in `.env`:
+
+```powershell
+copy .env.example .env
+```
+
+Then edit `.env` and set:
+
+```env
+VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/your_form_id
+```
+
+4. Restart the dev server after changing `.env`.
+
 Install dependencies:
 
 ```powershell

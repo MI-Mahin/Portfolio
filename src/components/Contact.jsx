@@ -3,6 +3,8 @@ import { Canvas } from '@react-three/fiber';
 import InteractiveSphere from './shared/InteractiveSphere';
 import FloatingGeometry from './shared/FloatingGeometry';
 
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/mzepaepa';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,11 +12,78 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
 
-  const handleSubmit = (e) => {
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name || !email || !message) {
+      setStatus({ type: 'error', message: 'Please fill out all fields.' });
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      setStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
+    if (!FORMSPREE_ENDPOINT) {
+      setStatus({
+        type: 'error',
+        message: 'Form is not configured yet. Add VITE_FORMSPREE_ENDPOINT in your .env file.'
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          subject: `Portfolio Contact from ${name}`
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      setStatus({
+        type: 'success',
+        message: 'Message sent successfully. I will get back to you soon.'
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Could not send message right now. Please try again or use the direct email link below.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -35,9 +104,27 @@ const Contact = () => {
           <InteractiveSphere position={[-4, 2, -2]} />
           <InteractiveSphere position={[4, -2, -3]} />
           
-          <FloatingGeometry position={[-5, -3, -4]} type="torus" />
-          <FloatingGeometry position={[5, 3, -4]} type="octahedron" />
-          <FloatingGeometry position={[0, -4, -5]} type="icosahedron" />
+          <FloatingGeometry
+            position={[-5, -3, -4]}
+            geometry={<torusKnotGeometry args={[0.6, 0.2, 100, 16]} />}
+            color="#4fc3f7"
+            speed={0.28}
+            floatSpeed={1.3}
+          />
+          <FloatingGeometry
+            position={[5, 3, -4]}
+            geometry={<octahedronGeometry args={[0.8]} />}
+            color="#7dd3fc"
+            speed={0.22}
+            floatSpeed={1.1}
+          />
+          <FloatingGeometry
+            position={[0, -4, -5]}
+            geometry={<icosahedronGeometry args={[0.7]} />}
+            color="#38bdf8"
+            speed={0.24}
+            floatSpeed={1.2}
+          />
         </Canvas>
       </div>
       
@@ -67,8 +154,17 @@ const Contact = () => {
             onChange={handleChange}
             required
           ></textarea>
-          <button type="submit">Send</button>
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Sending...' : 'Send'}
+          </button>
         </form>
+
+        {status.message && (
+          <p className={`contact-status ${status.type}`} role="status" aria-live="polite">
+            {status.message}
+          </p>
+        )}
+
       </div>
     </section>
   );
