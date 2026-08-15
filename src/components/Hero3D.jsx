@@ -111,7 +111,7 @@ export default function Hero3D() {
             {text}<span className="typing-cursor">|</span>
           </p>
           <div className="hero-cta">
-            <a href="/resume.pdf" download="Mahmudul_Islam_Mahin_Resume.pdf" className="btn-secondary">
+            <a href="/Mahmudul_Islam_Mahin_Software_Engineer_IUT.pdf" download="Mahmudul_Islam_Mahin_Software_Engineer_IUT.pdf" className="btn-secondary">
               Download Resume
             </a>
           </div>
