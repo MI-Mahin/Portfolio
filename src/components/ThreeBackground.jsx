@@ -37,29 +37,7 @@ function AnimatedParticles() {
   );
 }
 
-function FloatingGeometry({ position, geometry, color }) {
-  const ref = useRef();
-  
-  useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    ref.current.rotation.x = time * 0.3;
-    ref.current.rotation.y = time * 0.2;
-    ref.current.position.y = position[1] + Math.sin(time + position[0]) * 0.5;
-  });
-  
-  return (
-    <mesh ref={ref} position={position}>
-      {geometry}
-      <meshStandardMaterial
-        color={color}
-        metalness={0.7}
-        roughness={0.2}
-        transparent
-        opacity={0.6}
-      />
-    </mesh>
-  );
-}
+import FloatingGeometry from './shared/FloatingGeometry';
 
 export default function ThreeBackground() {
   return (
@@ -75,20 +53,25 @@ export default function ThreeBackground() {
         <AnimatedParticles />
         
         <FloatingGeometry
-          // moved much further left and up to ensure it stays outside the profile frame
           position={[-30, 18, -5]}
           geometry={<torusKnotGeometry args={[1.2, 0.35, 120, 20]} />}
           color="#6366f1"
+          speed={0.3}
+          floatSpeed={1.2}
         />
         <FloatingGeometry
           position={[8, -2, -8]}
           geometry={<octahedronGeometry args={[1.5, 0]} />}
           color="#8b5cf6"
+          speed={0.2}
+          floatSpeed={1.1}
         />
         <FloatingGeometry
           position={[0, -5, -10]}
           geometry={<icosahedronGeometry args={[1.2, 0]} />}
           color="#06b6d4"
+          speed={0.25}
+          floatSpeed={1}
         />
         
         <OrbitControls

@@ -146,11 +146,6 @@
   transform: translate(-50%, -50%);
   object-fit: cover;
   object-position: center;
-}
-
-/* mask out 3D background inside the circular frame by adding a solid fill */
-/* allow 3D objects to be visible inside the circular frame by removing the mask */
-.profile-photo img {
   z-index: 2;
 }
 

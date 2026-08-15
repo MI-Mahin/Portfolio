@@ -1,6 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Text3D, Center, Float, MeshDistortMaterial, Sphere } from '@react-three/drei';
+import React, { useState, useEffect } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Text3D, Center, Float } from '@react-three/drei';
+import InteractiveSphere from './shared/InteractiveSphere';
 
 function FloatingText({ children, position = [0, 0, 0], ...props }) {
   return (
@@ -26,36 +27,6 @@ function FloatingText({ children, position = [0, 0, 0], ...props }) {
   );
 }
 
-function InteractiveSphere({ position }) {
-  const meshRef = useRef();
-  const [hovered, setHovered] = useState(false);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-    }
-  });
-  
-  return (
-    <Sphere
-      ref={meshRef}
-      position={position}
-      args={[1, 64, 64]}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-    >
-      <MeshDistortMaterial
-        color={hovered ? "#8b5cf6" : "#6366f1"}
-        attach="material"
-        distort={0.4}
-        speed={2}
-        roughness={0.2}
-        metalness={0.8}
-      />
-    </Sphere>
-  );
-}
 
 export default function Hero3D() {
   const [text, setText] = useState('');

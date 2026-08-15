@@ -1,56 +1,8 @@
-import { useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
+import React, { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import InteractiveSphere from './shared/InteractiveSphere';
+import FloatingGeometry from './shared/FloatingGeometry';
 
-function InteractiveSphere({ position }) {
-  const meshRef = useRef();
-  const [hovered, setHovered] = useState(false);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = state.clock.elapsedTime * 0.2;
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-    }
-  });
-  
-  return (
-    <Sphere
-      ref={meshRef}
-      position={position}
-      args={[1, 64, 64]}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-    >
-      <MeshDistortMaterial
-        color={hovered ? "#8b5cf6" : "#6366f1"}
-        attach="material"
-        distort={0.4}
-        speed={2}
-        roughness={0.2}
-        metalness={0.8}
-      />
-    </Sphere>
-  );
-}
-
-function FloatingGeometry({ position, type }) {
-  return (
-    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.8}>
-      <mesh position={position}>
-        {type === 'torus' && <torusKnotGeometry args={[0.6, 0.2, 100, 16]} />}
-        {type === 'octahedron' && <octahedronGeometry args={[0.8]} />}
-        {type === 'icosahedron' && <icosahedronGeometry args={[0.7]} />}
-        <meshStandardMaterial
-          color="#4fc3f7"
-          metalness={0.6}
-          roughness={0.3}
-          emissive="#4fc3f7"
-          emissiveIntensity={0.2}
-        />
-      </mesh>
-    </Float>
-  );
-}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
